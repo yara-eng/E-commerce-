@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- font link -->
+     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+
+    <title>Shopping Cart | Resister Page</title>
+    <!-- links -->
+     <link rel="stylesheet" href="css/style.css">
+     <link rel="stylesheet" href="css/register.css">
+     
+</head>
+<body>
+    <header>
+        <div class="top_header">
+            <div class="container">
+                <a href="#" class="logo"><img src="img/logo.png" alt="logo" ></a>
+                <form action="" class="search_box">
+                    <div class="select_box">
+                        <select id="category" name="category">
+                            <option value="All Categories">All Categories</option>
+                            <option value="Electronics & Digita">Electronics & Digita</option>
+                            <option value="Phones & Tablet">Phones & Tablet</option>
+                            <option value="Fashion & Clathings">Fashion & Clathings</option>
+                            <option value="Telivsion & Monitor">Telivsion & Monitor</option>
+                            <option value="Jewelry & Watches">Jewelry & Watches</option>
+                            <option value="Washing Machine">Washing Machine</option>
+                            <option value="Toys & Hobbies">Toys & Hobbies</option>
+                        </select>
+                    </div> <!-- ./select_box -->
+                    <input type="text" name="search" id="search" placeholder="Search for Prodects" required>
+                    <button type="submit">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </form>
+                <div class="header_icons">
+                    <div class="icon">
+                        <a href="#"><i class="fa fa-heart-o"></i>
+                            <span class="count count_favourite" >0</span>
+                        </a>
+                    </div><!-- ./icon -->
+                    <div onclick="open_close_cart()" class="icon">
+                        <a href="#"><i class="fa fa-shopping-cart"></i>
+                            <span class="count count_item_header" >0</span>
+                        </a>
+                    </div><!-- ./icon -->
+                </div> <!-- ./header_icons -->
+            </div> <!-- ./container -->
+        </div> <!-- ./top_header -->
+        <div class="bottom_header">
+            <div class="container">
+                <nav class="nav">
+                    <div class="category_nav">
+                        <div onclick="Open_Categ_list()" class="category_btn">
+                            <i class="fa fa-bars" ></i>
+                            <p>Browse Category</p>
+                            <i class="fa-solid fa-angle-down"></i>
+                        </div><!-- ./category_btn -->
+                        <div class="category_nav_list">
+                            <a href="#">Top 10 Offers</a>
+                            <a href="#">Electronics & Digita</a>
+                            <a href="#">Phones & Tablet</a>
+                            <a href="#">Fashion & Clathings</a>
+                            <a href="#">Jewelry & Watches</a>
+                            <a href="#">Washing Machine</a>
+                            <a href="#">Toys & Hobbie</a>
+                        </div><!-- ./category_nav_list -->
+                    </div><!-- ./category_nav -->
+                    <ul class="nav_links">
+                        <li class="active"><a href="#">Home</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Accesories</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </nav>
+                <div class="login_signup btns">
+                    <a href="login.html" class="btn">Login <i class="fa-solid fa-right-to-bracket"></i></a>
+                    <a href="register.html" class="btn">Sign UP <i class="fa-solid fa-user-plus"></i></a>
+
+                </div> <!-- ./login_signup -->
+            </div><!-- ./container -->
+        </div> <!-- ./bottom_header -->
+    </header>
+    <section class="section-form">
+        <h2>Resister !!</h2>
+        <form novalidate>
+            <input type="text" placeholder="Enter Username.." id="username"/>
+            <input type="email" placeholder="Enter Email.." id="email"/>
+            <input type="password" placeholder="Enter Password.." id="password"/>
+            <!-- <input type="password" placeholder="Confirm Password.." id="Confirm"/> -->
+            <input type="submit" value="Sign up" id="sign_up"/>
+        </form>
+    </section> <!-- ./section-form -->
+    
+    <script src="js/register.js"></script>
+</body>
+</html>
