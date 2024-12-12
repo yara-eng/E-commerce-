@@ -3,6 +3,25 @@ let category_nav_list =document.querySelector(".category_nav_list");
 function Open_Categ_list(){
     category_nav_list.classList.toggle("active");
 }
+//header
+let userInfo =document.querySelector("#user_info");
+let userdom =document.querySelector("#user");
+let links =document.querySelector("#links");
+let logOutBtn =document.querySelector("#logout");
+
+
+let username = localStorage.getItem('username');
+if(username){
+    links.remove()
+    userInfo.style.display ="flex"
+    userdom.innerHTML= username;
+}
+logOutBtn.addEventListener('click',function(){
+    localStorage.clear();
+    setTimeout(()=>{
+        window.location="register.html"
+    },1500)
+})
 //cart
 var cart=document.querySelector(".cart");
 function open_close_cart(){
