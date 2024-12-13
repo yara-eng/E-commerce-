@@ -1190,4 +1190,8 @@ footer  .bottom_footer .payment_img{
     .checkout .input_info h2{
         font-size: 20px;
     }
+     /* login and register responsive */
+    .section-form{
+        width: 70%;
+    }
  }
