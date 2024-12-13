@@ -64,6 +64,20 @@ function addToCart(product){
 function updateCart(){
   const cartItemsContainer = document.getElementById("cart_items")
   const cart = JSON.parse(localStorage.getItem('cart')) || []
+  const checkout_items= document.getElementById('checkout_items')
+
+  let items_input = document.getElementById("items")
+  let total_Price_input = document.getElementById("total_Price")
+  let count_items_input = document.getElementById("count_items")
+  if(checkout_items){
+    checkout_items.innerHTML=""
+   
+    items_input.value ="";
+    total_Price_input.value ="";
+    count_items_input.value ="";
+
+
+  }
 
   var total_Price=0
   var total_count=0
@@ -72,7 +86,13 @@ function updateCart(){
     let total_Price_item = item.price *item.quantity;
     total_Price +=total_Price_item
     total_count +=item.quantity
+    //checkout input
+    if(checkout_items){
+    items_input.value+= item.name +"---"+"price: "+total_Price_item+"---"+"count:"+item.quantity+"\n"
     
+    total_Price_input.value=total_Price+20
+    count_items_input.value= total_count
+    }
     cartItemsContainer.innerHTML +=`
      <div class="item_cart">
                 <img src="${item.img}" alt="">
@@ -88,6 +108,26 @@ function updateCart(){
                 <button class="delete_item" data-index="${index}"><i class="fa-solid fa-trash-can"></i></button>
             </div>
     `
+    //to checkout page
+    if(checkout_items){
+      checkout_items.innerHTML += `
+      <div class="item_cart">
+                            <div class="image_name">
+                                <img src="${item.img}" alt="product_img">
+                                <div class="content">
+                                    <h4>${item.name} </h4>
+                                    <p class="price_cart">$${total_Price_item}</p>
+                                    <div class="quantity_control">
+                                        <button class="decrease_quantity" data-index=${index}>-</button>
+                                        <span class="quantity">${item.quantity}</span>
+                                        <button class="Increase_quantity" data-index=${index}>+</button>
+                                    </div><!-- ./quantity_control -->
+                                </div><!-- ./content -->
+                            </div><!-- ./image_name -->
+                            <button class="delete_item" data-index="${index}"><i class="fa-solid fa-trash-can"></i></button>
+                        </div><!-- ./item_cart -->
+      `
+    }
   })
   //count item
   const price_cart_total =document.querySelector('.price_cart_total')
@@ -96,6 +136,15 @@ function updateCart(){
   price_cart_total.innerHTML= `$${total_Price}`
   count_item_cart.innerHTML = total_count
   count_item_header.innerHTML = total_count
+  // subtotal checkout page
+  if(checkout_items){
+    const subtotal_checkout= document.querySelector(".subtotal_checkout")
+    const total_checkout= document.querySelector(".total_checkout")
+    subtotal_checkout.innerHTML= `$${total_Price}`
+    total_checkout.innerHTML= `$${total_Price+20}`
+
+
+  }
 
   // button increase or decrease product
   const increaseButtons =document.querySelectorAll(".Increase_quantity")
